@@ -20,7 +20,7 @@ import { baseOrganizationSchema, breadcrumbSchema } from "./lib/seo";
 
 const descriptions = {
   home: "IPTV Premium en France avec une experience moderne, compatible multi-appareils et un design international pour Mon IPTV Premium.",
-  tarifs: "Tarifs IPTV Premium en France: offres placeholders pretes a recevoir vos prix definitifs pour Mon IPTV Premium.",
+  tarifs: "Tarifs IPTV Premium en France: offres Basique et Premium selon la duree et le nombre d'appareils pour Mon IPTV Premium.",
   abonnement:
     "Abonnement IPTV premium en France: decouvrez les criteres de qualite, compatibilite, support et installation pour choisir une offre claire.",
   contact: "Contactez Mon IPTV Premium pour une demande d'information ou un essai. WhatsApp et tarifs seront ajoutes prochainement.",
@@ -99,7 +99,7 @@ function TarifsPage() {
         path="/tarifs"
         schema={[baseOrganizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Tarifs", path: "/tarifs" }])]}
       />
-      <PageHero eyebrow="Tarifs" title="Tarifs IPTV Premium" text="Les offres sont pretes a recevoir vos montants finaux. Pour l'instant, les prix restent volontairement en placeholder." />
+      <PageHero eyebrow="Tarifs" title="Tarifs IPTV Premium" text="Comparez les offres Basique et Premium selon la duree choisie et le nombre d'appareils a connecter." />
       <PricingPreview full />
       <section className="section section-muted">
         <SectionHeading eyebrow="Comparaison" title="Ce qui sera inclus dans chaque offre" />
@@ -293,7 +293,7 @@ function LegalPage({ type }: { type: "mentions" | "conditions" | "confidentialit
           heading: "Offres et disponibilite",
           paragraphs: [
             "Les offres presentees peuvent inclure differents packs selon la duree, le nombre d'appareils et le niveau de service Basique ou Premium.",
-            "Les tarifs affiches sur le site sont actuellement des emplacements temporaires et devront etre remplaces par les prix definitifs avant toute vente.",
+            "Les tarifs affiches sur le site sont organises par duree, nombre d'appareils et niveau de service afin de faciliter la comparaison avant commande.",
             "Mon IPTV Premium peut modifier ses offres, ses prix, ses caracteristiques et ses conditions commerciales a tout moment avant la validation d'une commande."
           ]
         },

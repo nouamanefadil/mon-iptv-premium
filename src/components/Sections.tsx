@@ -134,7 +134,7 @@ export function PricingPreview({ full = false }: { full?: boolean }) {
       <SectionHeading
         eyebrow="Tarifs"
         title={full ? "Choisissez une offre IPTV Premium" : "Packs IPTV Premium par duree"}
-        text="Selectionnez Basique ou Premium, le nombre d'appareils, puis choisissez votre duree. Les prix seront ajoutes lorsque les tarifs definitifs seront fournis."
+        text="Selectionnez Basique ou Premium, le nombre d'appareils, puis choisissez la duree adaptee a votre besoin."
       />
       <div className="pricing-quality-tabs" role="tablist" aria-label="Type d'offre">
         {qualityOptions.map((option) => (
@@ -186,42 +186,46 @@ export function PricingPreview({ full = false }: { full?: boolean }) {
           exit={{ opacity: 0, y: -18, filter: "blur(10px)" }}
           transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
         >
-          {pricingPlans.map((plan, index) => (
-            <motion.article
-              className={`pricing-card reveal ${plan.highlighted ? "highlighted" : ""}`}
-              key={plan.name}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.28, delay: index * 0.035 }}
-              whileHover={{ y: -10 }}
-            >
-              <span className="plan-badge">{plan.badge}</span>
-              <h3>{plan.name}</h3>
-              <p className="duration">{plan.duration}</p>
-              <strong>{plan.price}</strong>
-              <p className="price-note">{plan.note}</p>
-              <ul>
-                <li>
-                  <Check size={16} /> {deviceLabel}
-                </li>
-                {quality.features.map((feature) => (
-                  <li key={feature}>
-                    <Check size={16} /> {feature}
-                  </li>
-                ))}
-              </ul>
-              <a
-                className={plan.highlighted ? "btn btn-primary" : "btn btn-secondary"}
-                href={getWhatsAppUrl(
-                  `Bonjour, je souhaite commander ${quality.label} - ${plan.duration} - ${deviceLabel}.`
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
+          {pricingPlans.map((plan, index) => {
+            const price = plan.prices[selectedQuality as keyof typeof plan.prices][selectedDevices as 1 | 2 | 3];
+
+            return (
+              <motion.article
+                className={`pricing-card reveal ${plan.highlighted ? "highlighted" : ""}`}
+                key={plan.name}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.28, delay: index * 0.035 }}
+                whileHover={{ y: -10 }}
               >
-                Commander
-              </a>
-            </motion.article>
-          ))}
+                <span className="plan-badge">{plan.badge}</span>
+                <h3>{plan.name}</h3>
+                <p className="duration">{plan.duration}</p>
+                <strong>{price}</strong>
+                <p className="price-note">{plan.note}</p>
+                <ul>
+                  <li>
+                    <Check size={16} /> {deviceLabel}
+                  </li>
+                  {quality.features.map((feature) => (
+                    <li key={feature}>
+                      <Check size={16} /> {feature}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  className={plan.highlighted ? "btn btn-primary" : "btn btn-secondary"}
+                  href={getWhatsAppUrl(
+                    `Bonjour, je souhaite commander ${quality.label} - ${plan.duration} - ${deviceLabel} - ${price}.`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Commander
+                </a>
+              </motion.article>
+            );
+          })}
         </motion.div>
       </AnimatePresence>
     </section>

@@ -109,7 +109,10 @@ export const pricingPlans = [
   {
     name: "Pack 1 mois",
     duration: "1 mois",
-    price: "Prix bientot",
+    prices: {
+      basique: { 1: "9.00€", 2: "19.00€", 3: "29.00€" },
+      premium: { 1: "25.00€", 2: "55.00€", 3: "79.00€" }
+    },
     badge: "Flexible",
     note: "Ideal pour tester",
     highlighted: false
@@ -117,7 +120,10 @@ export const pricingPlans = [
   {
     name: "Pack 3 mois",
     duration: "3 mois",
-    price: "Prix bientot",
+    prices: {
+      basique: { 1: "19.00€", 2: "29.00€", 3: "49.00€" },
+      premium: { 1: "49.00€", 2: "89.00€", 3: "139.00€" }
+    },
     badge: "Confort",
     note: "Engagement court",
     highlighted: false
@@ -125,7 +131,10 @@ export const pricingPlans = [
   {
     name: "Pack 6 mois",
     duration: "6 mois",
-    price: "Prix bientot",
+    prices: {
+      basique: { 1: "29.00€", 2: "49.00€", 3: "79.00€" },
+      premium: { 1: "69.00€", 2: "129.00€", 3: "199.00€" }
+    },
     badge: "Avantage",
     note: "Bon equilibre",
     highlighted: false
@@ -133,7 +142,10 @@ export const pricingPlans = [
   {
     name: "Pack 12 mois",
     duration: "12 mois",
-    price: "Prix bientot",
+    prices: {
+      basique: { 1: "49.00€", 2: "89.00€", 3: "129.00€" },
+      premium: { 1: "99.00€", 2: "169.00€", 3: "259.00€" }
+    },
     badge: "Populaire",
     note: "Meilleur choix",
     highlighted: true
@@ -141,7 +153,10 @@ export const pricingPlans = [
   {
     name: "Pack 24 mois",
     duration: "24 mois",
-    price: "Prix bientot",
+    prices: {
+      basique: { 1: "89.00€", 2: "139.00€", 3: "189.00€" },
+      premium: { 1: "169.00€", 2: "269.00€", 3: "399.00€" }
+    },
     badge: "Maxi economie",
     note: "Longue duree",
     highlighted: false
@@ -150,7 +165,7 @@ export const pricingPlans = [
 
 export const steps = [
   { icon: CircleHelp, title: "Choisir l'offre", text: "Comparez les durees et options depuis la page Tarifs." },
-  { icon: Clock, title: "Recevoir les informations", text: "Les details de contact seront ajoutes quand WhatsApp sera finalise." },
+  { icon: Clock, title: "Commander sur WhatsApp", text: "Envoyez votre pack selectionne avec la duree, le nombre d'appareils et le prix." },
   { icon: Zap, title: "Installer simplement", text: "Suivez les consignes d'installation sur votre appareil compatible." }
 ];
 
@@ -163,7 +178,7 @@ export const faqs = [
   {
     question: "Les prix sont-ils definitifs ?",
     answer:
-      "Non. Les cartes de prix sont des placeholders pour la premiere version. Les montants finaux seront ajoutes plus tard dans le fichier de configuration."
+      "Oui. Les cartes affichent les tarifs Basique et Premium selon la duree choisie et le nombre d'appareils."
   },
   {
     question: "Le site utilise-t-il des marques protegees ?",
@@ -173,7 +188,7 @@ export const faqs = [
   {
     question: "Comment contacter le service ?",
     answer:
-      "La page Contact affiche un formulaire visuel et des CTA temporaires. Le lien WhatsApp sera branche quand le numero sera fourni."
+      "Vous pouvez utiliser les boutons Commander ou le bouton WhatsApp flottant pour envoyer directement votre demande."
   }
 ];
 
