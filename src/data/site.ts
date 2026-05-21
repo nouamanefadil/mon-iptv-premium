@@ -20,9 +20,14 @@ export const siteConfig = {
   keyword: "iptv premium",
   country: "France",
   ctaPlaceholder: "#contactez-nous",
-  whatsapp: "",
+  whatsapp: "+447988593885",
   email: "contact@moniptvpremium.fr"
 };
+
+export function getWhatsAppUrl(message: string) {
+  const phone = siteConfig.whatsapp.replace(/\D/g, "");
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
 
 export const navItems = [
   { label: "Accueil", href: "/" },

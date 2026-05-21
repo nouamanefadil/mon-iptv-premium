@@ -1,7 +1,7 @@
-import { Menu, Moon, Sparkles, Sun, X } from "lucide-react";
+import { Menu, MessageCircle, Moon, Sparkles, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { navItems, siteConfig } from "../data/site";
+import { getWhatsAppUrl, navItems, siteConfig } from "../data/site";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -85,6 +85,15 @@ export function Layout({ children }: LayoutProps) {
       )}
       <main>{children}</main>
       <Footer />
+      <a
+        className="whatsapp-float"
+        href={getWhatsAppUrl("Bonjour, je souhaite des informations sur vos offres IPTV Premium.")}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Contacter Mon IPTV Premium sur WhatsApp"
+      >
+        <MessageCircle size={28} />
+      </a>
     </div>
   );
 }

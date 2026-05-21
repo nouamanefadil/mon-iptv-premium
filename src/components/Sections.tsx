@@ -12,6 +12,7 @@ import {
   features,
   pricingPlans,
   qualityOptions,
+  getWhatsAppUrl,
   siteConfig,
   stats,
   steps,
@@ -209,7 +210,14 @@ export function PricingPreview({ full = false }: { full?: boolean }) {
                   </li>
                 ))}
               </ul>
-              <a className={plan.highlighted ? "btn btn-primary" : "btn btn-secondary"} href="/contactez-nous">
+              <a
+                className={plan.highlighted ? "btn btn-primary" : "btn btn-secondary"}
+                href={getWhatsAppUrl(
+                  `Bonjour, je souhaite commander ${quality.label} - ${plan.duration} - ${deviceLabel}.`
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Commander
               </a>
             </motion.article>
