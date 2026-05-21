@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://moniptvpremium.fr/sitemap.xml

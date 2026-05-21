@@ -1,0 +1,16 @@
+import{c as e,j as s,S as c,T as l,C as d}from"./index-CODqo0sv.js";import"./animation-BvLz5TPe.js";/**
+ * @license lucide-react v0.468.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const r=e("ChartColumn",[["path",{d:"M3 3v16a2 2 0 0 0 2 2h16",key:"c24i48"}],["path",{d:"M18 17V9",key:"2bz60n"}],["path",{d:"M13 17V5",key:"1frdt8"}],["path",{d:"M8 17v-3",key:"17ska0"}]]);/**
+ * @license lucide-react v0.468.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const i=e("Grid3x3",[["rect",{width:"18",height:"18",x:"3",y:"3",rx:"2",key:"afitv7"}],["path",{d:"M3 9h18",key:"1pudct"}],["path",{d:"M3 15h18",key:"5xshup"}],["path",{d:"M9 3v18",key:"fh3hqa"}],["path",{d:"M15 3v18",key:"14nvp0"}]]);/**
+ * @license lucide-react v0.468.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const n=e("Radio",[["path",{d:"M4.9 19.1C1 15.2 1 8.8 4.9 4.9",key:"1vaf9d"}],["path",{d:"M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5",key:"u1ii0m"}],["circle",{cx:"12",cy:"12",r:"2",key:"1c9p78"}],["path",{d:"M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5",key:"1j5fej"}],["path",{d:"M19.1 4.9C23 8.8 23 15.1 19.1 19",key:"10b0cb"}]]),o=[{label:"Live TV",icon:l},{label:"Films",icon:d},{label:"Series",icon:i},{label:"Radio",icon:n}],h=[{label:"4K",className:"badge-top"},{label:"SPORT",className:"badge-right"},{label:"VOD",className:"badge-left"},{label:"TV",className:"badge-bottom"}];function x(){return s.jsxs("div",{className:"hero-scene hero-dashboard-scene","aria-hidden":"true",children:[s.jsx("div",{className:"dashboard-orb orb-red"}),s.jsx("div",{className:"dashboard-orb orb-blue"}),s.jsx("div",{className:"dashboard-platform"}),s.jsxs("div",{className:"mock-browser",children:[s.jsxs("div",{className:"browser-topbar",children:[s.jsx("span",{}),s.jsx("span",{}),s.jsx("span",{})]}),s.jsxs("div",{className:"browser-screen",children:[s.jsx("div",{className:"screen-glow"}),s.jsxs("div",{className:"dashboard-brand",children:[s.jsx("div",{className:"dashboard-logo",children:s.jsx(c,{size:28})}),s.jsxs("div",{children:[s.jsx("strong",{children:"Mon IPTV"}),s.jsx("span",{children:"Premium"})]})]}),s.jsxs("div",{className:"dashboard-subline",children:[s.jsx("span",{children:"Liste active"}),s.jsx("strong",{children:"France Premium"})]}),s.jsxs("div",{className:"status-row",children:[s.jsx("span",{className:"status-pill active",children:"Actif"}),s.jsx("span",{className:"status-pill",children:"Expiration a configurer"})]}),s.jsx("div",{className:"menu-card-row",children:o.map(a=>s.jsxs("div",{className:"mock-menu-card",children:[s.jsx("span",{children:s.jsx(a.icon,{size:24})}),s.jsx("strong",{children:a.label})]},a.label))}),s.jsxs("div",{className:"mock-actions",children:[s.jsx("span",{children:"Renouveler"}),s.jsx("span",{children:"Langue"}),s.jsx("span",{children:"Replay"}),s.jsx("span",{children:s.jsx(r,{size:17})})]}),s.jsx("div",{className:"mock-device-code",children:"MAC : 00:1A:79:XX:XX:XX"})]})]}),h.map(a=>s.jsx("div",{className:`floating-service ${a.className}`,children:a.label},a.label))]})}export{x as default};
