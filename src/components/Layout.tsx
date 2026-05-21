@@ -120,6 +120,7 @@ function Footer() {
         <a href="/mentions-legales">Mentions legales</a>
         <a href="/conditions-generales">Conditions generales</a>
         <a href="/confidentialite">Confidentialite</a>
+        <a href="/sitemap">Plan du site</a>
       </div>
       <div className="footer-bottom">
         <span>© 2026 {siteConfig.brand}</span>

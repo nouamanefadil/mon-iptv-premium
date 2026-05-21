@@ -26,7 +26,8 @@ const descriptions = {
   contact: "Contactez Mon IPTV Premium pour une demande d'information ou un essai. WhatsApp et tarifs seront ajoutes prochainement.",
   about: "A propos de Mon IPTV Premium: une marque IPTV premium orientee clarte, design international et experience France.",
   blog: "Blog IPTV Premium: guides, conseils et articles pour comprendre l'IPTV premium en France.",
-  legal: "Informations legales de Mon IPTV Premium."
+  legal: "Informations legales de Mon IPTV Premium.",
+  sitemap: "Plan du site Mon IPTV Premium: acces rapide aux pages principales, aux offres IPTV, au contact et aux informations legales."
 };
 
 export default function App() {
@@ -44,6 +45,7 @@ export default function App() {
         {path === "/mentions-legales" && <LegalPage type="mentions" />}
         {path === "/conditions-generales" && <LegalPage type="conditions" />}
         {path === "/confidentialite" && <LegalPage type="confidentialite" />}
+        {path === "/sitemap" && <SitemapPage />}
         {!knownPaths.includes(path) && <NotFoundPage />}
       </RevealRoot>
     </Layout>
@@ -59,7 +61,38 @@ const knownPaths = [
   "/blog",
   "/mentions-legales",
   "/conditions-generales",
-  "/confidentialite"
+  "/confidentialite",
+  "/sitemap"
+];
+
+const sitemapGroups = [
+  {
+    title: "Pages principales",
+    text: "Les entrees essentielles du site pour decouvrir la marque, les offres et le contact.",
+    links: [
+      { label: "Accueil", href: "/", note: "Presentation premium et acces rapide aux offres" },
+      { label: "Tarifs IPTV Premium", href: "/tarifs", note: "Packs Basique et Premium par duree et appareil" },
+      { label: "Abonnement IPTV", href: "/abonnement-iptv", note: "Page SEO dediee a l'intention abonnement IPTV" },
+      { label: "Contactez-nous", href: "/contactez-nous", note: "Formulaire visuel et lien WhatsApp" }
+    ]
+  },
+  {
+    title: "Confiance et contenu",
+    text: "Pages utiles pour comprendre le positionnement, les conseils et la transparence du service.",
+    links: [
+      { label: "A propos de nous", href: "/a-propos-de-nous", note: "Valeurs, compatibilite et experience France" },
+      { label: "Blog", href: "/blog", note: "Guides et articles autour de l'IPTV premium" }
+    ]
+  },
+  {
+    title: "Pages legales",
+    text: "Informations administratives et conditions de consultation du site.",
+    links: [
+      { label: "Mentions legales", href: "/mentions-legales", note: "Editeur, hebergement et responsabilite" },
+      { label: "Conditions generales", href: "/conditions-generales", note: "Offres, commande, support et utilisation" },
+      { label: "Confidentialite", href: "/confidentialite", note: "Donnees, cookies, droits et securite" }
+    ]
+  }
 ];
 
 function HomePage() {
@@ -215,6 +248,77 @@ function BlogPage() {
               <p>{post.excerpt}</p>
             </article>
           ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+function SitemapPage() {
+  const sitemapSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `Plan du site ${siteConfig.brand}`,
+    itemListElement: sitemapGroups.flatMap((group) =>
+      group.links.map((link, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: link.label,
+        url: `${siteConfig.domain}${link.href}`
+      }))
+    )
+  };
+
+  return (
+    <>
+      <SeoEffect
+        title={`Plan du site | ${siteConfig.brand}`}
+        description={descriptions.sitemap}
+        path="/sitemap"
+        schema={[
+          baseOrganizationSchema,
+          breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Plan du site", path: "/sitemap" }]),
+          sitemapSchema
+        ]}
+      />
+      <PageHero
+        eyebrow="Sitemap"
+        title="Plan du site"
+        text="Toutes les pages importantes de Mon IPTV Premium sont regroupees ici pour naviguer vite et verifier la structure du site."
+      />
+      <section className="section sitemap-section">
+        <div className="sitemap-grid">
+          {sitemapGroups.map((group) => (
+            <article className="sitemap-card reveal" key={group.title}>
+              <div className="sitemap-card-head">
+                <span>{group.links.length}</span>
+                <div>
+                  <h2>{group.title}</h2>
+                  <p>{group.text}</p>
+                </div>
+              </div>
+              <div className="sitemap-link-list">
+                {group.links.map((link) => (
+                  <a href={link.href} key={link.href}>
+                    <strong>{link.label}</strong>
+                    <span>{link.note}</span>
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+        <div className="sitemap-xml reveal">
+          <div>
+            <span className="eyebrow">SEO</span>
+            <h2>Sitemap XML technique</h2>
+            <p>
+              Pour Google et les moteurs de recherche, le fichier XML reste disponible separement.
+            </p>
+          </div>
+          <a className="btn btn-secondary" href="/sitemap.xml">
+            Lire sitemap.xml
+          </a>
         </div>
       </section>
     </>
