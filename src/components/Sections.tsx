@@ -113,6 +113,7 @@ export function CategoryShowcase() {
       <div className="category-grid">
         {categories.map((item) => (
           <article className={`category-card ${item.tone} reveal`} key={item.title}>
+            <img src={item.image} alt="" aria-hidden="true" />
             <div className="category-orbit" />
             <h3>{item.title}</h3>
             <p>{item.text}</p>

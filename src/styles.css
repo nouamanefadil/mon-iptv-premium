@@ -847,14 +847,63 @@ textarea {
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: var(--panel);
   overflow: hidden;
+  isolation: isolate;
+  background: #06152f;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
+}
+
+.category-card img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.02);
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.category-card::before,
+.category-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.category-card::before {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(5, 11, 25, 0.9) 0%, rgba(5, 11, 25, 0.68) 43%, rgba(5, 11, 25, 0.28) 100%),
+    linear-gradient(180deg, rgba(5, 11, 25, 0.34), rgba(5, 11, 25, 0.74));
+}
+
+.category-card::after {
+  border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.category-card:hover img {
+  filter: saturate(1.12) contrast(1.05);
+  transform: scale(1.07);
 }
 
 .category-card h3,
 .category-card p {
   position: relative;
   z-index: 1;
+}
+
+.category-card h3 {
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.42);
+}
+
+.category-card p {
+  color: rgba(245, 248, 255, 0.78);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.38);
 }
 
 .category-orbit {
@@ -865,35 +914,36 @@ textarea {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 60%);
+  display: none;
 }
 
 .category-card.red {
-  background: linear-gradient(145deg, rgba(198, 31, 58, 0.38), rgba(9, 27, 62, 0.8));
+  border-color: rgba(255, 73, 105, 0.32);
 }
 
 .category-card.blue {
-  background: linear-gradient(145deg, rgba(28, 79, 156, 0.46), rgba(9, 27, 62, 0.8));
+  border-color: rgba(75, 132, 220, 0.34);
 }
 
 .category-card.violet {
-  background: linear-gradient(145deg, rgba(97, 53, 172, 0.42), rgba(9, 27, 62, 0.8));
+  border-color: rgba(145, 115, 230, 0.36);
 }
 
 .category-card.cyan {
-  background: linear-gradient(145deg, rgba(16, 116, 145, 0.42), rgba(9, 27, 62, 0.8));
+  border-color: rgba(61, 183, 215, 0.34);
 }
 
 :root[data-theme="light"] .category-card {
-  border-color: rgba(8, 26, 58, 0.1);
-  box-shadow: 0 22px 60px rgba(8, 26, 58, 0.12);
+  border-color: rgba(8, 26, 58, 0.12);
+  box-shadow: 0 22px 60px rgba(8, 26, 58, 0.16);
 }
 
 :root[data-theme="light"] .category-card h3 {
-  color: #07142c;
+  color: #fff;
 }
 
 :root[data-theme="light"] .category-card p {
-  color: rgba(7, 20, 44, 0.76);
+  color: rgba(245, 248, 255, 0.82);
 }
 
 :root[data-theme="light"] .category-orbit {
@@ -901,20 +951,10 @@ textarea {
   background: radial-gradient(circle, rgba(255, 255, 255, 0.34), transparent 62%);
 }
 
-:root[data-theme="light"] .category-card.red {
-  background: linear-gradient(145deg, rgba(255, 205, 218, 0.95), rgba(233, 240, 255, 0.92));
-}
-
-:root[data-theme="light"] .category-card.blue {
-  background: linear-gradient(145deg, rgba(207, 224, 255, 0.96), rgba(232, 241, 255, 0.92));
-}
-
-:root[data-theme="light"] .category-card.violet {
-  background: linear-gradient(145deg, rgba(224, 211, 255, 0.95), rgba(232, 241, 255, 0.92));
-}
-
-:root[data-theme="light"] .category-card.cyan {
-  background: linear-gradient(145deg, rgba(206, 237, 247, 0.96), rgba(232, 241, 255, 0.92));
+:root[data-theme="light"] .category-card::before {
+  background:
+    linear-gradient(90deg, rgba(4, 13, 30, 0.88) 0%, rgba(4, 13, 30, 0.66) 45%, rgba(4, 13, 30, 0.28) 100%),
+    linear-gradient(180deg, rgba(4, 13, 30, 0.26), rgba(4, 13, 30, 0.64));
 }
 
 .pricing-grid {

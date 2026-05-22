@@ -78,10 +78,30 @@ export const features = [
 ];
 
 export const categories = [
-  { title: "Sport", text: "Evenements, competitions et emissions sportives dans une experience fluide.", tone: "red" },
-  { title: "Cinema", text: "Films, nouveautes et classiques presentes sans affiche ni marque protegee.", tone: "blue" },
-  { title: "Series", text: "Bibliotheque organisee pour profiter de vos programmes favoris sur tous vos ecrans.", tone: "violet" },
-  { title: "Famille", text: "Selections jeunesse, documentaires et contenus generalistes pour le foyer.", tone: "cyan" }
+  {
+    title: "Sport",
+    text: "Evenements, competitions et emissions sportives dans une experience fluide.",
+    tone: "red",
+    image: "/category-images/sport.jpg"
+  },
+  {
+    title: "Cinema",
+    text: "Films, nouveautes et classiques presentes sans affiche ni marque protegee.",
+    tone: "blue",
+    image: "/category-images/cinema.jpg"
+  },
+  {
+    title: "Series",
+    text: "Bibliotheque organisee pour profiter de vos programmes favoris sur tous vos ecrans.",
+    tone: "violet",
+    image: "/category-images/series.jpg"
+  },
+  {
+    title: "Famille",
+    text: "Selections jeunesse, documentaires et contenus generalistes pour le foyer.",
+    tone: "cyan",
+    image: "/category-images/famille.jpg"
+  }
 ];
 
 export const deviceOptions = [
