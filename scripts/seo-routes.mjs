@@ -9,7 +9,46 @@ const organizationSchema = {
   "@type": "Organization",
   name: site.brand,
   url: site.domain,
-  email: site.email
+  email: site.email,
+  description:
+    "Mon IPTV Premium est un site francais qui presente des offres IPTV premium avec packs Basique et Premium, compatibilite multi-appareils et commande via WhatsApp.",
+  areaServed: {
+    "@type": "Country",
+    name: "France"
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+447988593885",
+    contactType: "customer support",
+    areaServed: "France",
+    availableLanguage: ["fr"]
+  }
+};
+
+const iptvServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "IPTV Premium France",
+  serviceType: "Abonnement IPTV premium",
+  provider: {
+    "@type": "Organization",
+    name: site.brand,
+    url: site.domain
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "France"
+  },
+  description:
+    "Service de presentation et de commande d'offres IPTV premium en France avec packs Basique ou Premium, durees de 1 a 24 mois et options 1, 2 ou 3 appareils.",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "EUR",
+    lowPrice: "9.00",
+    highPrice: "399.00",
+    offerCount: "30",
+    url: `${site.domain}/tarifs`
+  }
 };
 
 function breadcrumbSchema(items) {
@@ -56,6 +95,37 @@ const faqSchema = {
   ]
 };
 
+const abonnementFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Qu'est-ce qu'un abonnement IPTV premium ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Un abonnement IPTV premium est une offre de television par internet organisee autour de la stabilite, de la qualite HD ou 4K selon contenu, de la compatibilite multi-appareils et de l'accompagnement client."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Quelle difference entre Basique et Premium ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Basique vise une experience HD stable avec installation accompagnee. Premium ajoute le confort HD et 4K selon contenu, un anti-freeze avance et un support prioritaire."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Quel pack choisir pour un foyer en France ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Un foyer peut commencer par 1 ou 3 mois pour tester, choisir 6 ou 12 mois pour l'equilibre, ou 24 mois pour une utilisation longue duree. Les options 1, 2 ou 3 appareils s'adaptent au nombre d'ecrans."
+      }
+    }
+  ]
+};
+
 const sitemapSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -79,7 +149,7 @@ export const routes = [
     title: "IPTV Premium France | Abonnement IPTV HD et 4K",
     description:
       "Decouvrez Mon IPTV Premium, une offre IPTV premium en France avec packs flexibles, compatibilite multi-appareils, support client et commande rapide via WhatsApp.",
-    schema: [organizationSchema, faqSchema],
+    schema: [organizationSchema, iptvServiceSchema, faqSchema],
     priority: "1.0"
   },
   {
@@ -95,7 +165,12 @@ export const routes = [
     title: `Abonnement IPTV Premium France | ${site.brand}`,
     description:
       "Choisissez un abonnement IPTV premium en France avec une experience stable, compatible multi-appareils, packs Basique ou Premium et accompagnement simple.",
-    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Abonnement IPTV", path: "/abonnement-iptv" }])],
+    schema: [
+      organizationSchema,
+      iptvServiceSchema,
+      breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Abonnement IPTV", path: "/abonnement-iptv" }]),
+      abonnementFaqSchema
+    ],
     priority: "0.9"
   },
   {

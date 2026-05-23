@@ -16,7 +16,7 @@ import {
   TrustSection
 } from "./components/Sections";
 import { aboutValues, blogPosts, faqs, siteConfig } from "./data/site";
-import { baseOrganizationSchema, breadcrumbSchema } from "./lib/seo";
+import { baseOrganizationSchema, breadcrumbSchema, iptvServiceSchema } from "./lib/seo";
 
 const descriptions = {
   home: "Decouvrez Mon IPTV Premium, une offre IPTV premium en France avec packs flexibles, compatibilite multi-appareils, support client et commande rapide via WhatsApp.",
@@ -108,7 +108,7 @@ function HomePage() {
 
   return (
     <>
-      <SeoEffect title={siteConfig.seoTitle} description={descriptions.home} path="/" schema={[baseOrganizationSchema, faqSchema]} />
+      <SeoEffect title={siteConfig.seoTitle} description={descriptions.home} path="/" schema={[baseOrganizationSchema, iptvServiceSchema, faqSchema]} />
       <Hero />
       <StatsBand />
       <FeatureGrid />
@@ -153,13 +153,45 @@ function TarifsPage() {
 }
 
 function AbonnementPage() {
+  const abonnementFaqs = [
+    {
+      question: "Qu'est-ce qu'un abonnement IPTV premium ?",
+      answer:
+        "Un abonnement IPTV premium est une offre de television par internet organisee autour de la stabilite, de la qualite HD ou 4K selon contenu, de la compatibilite multi-appareils et de l'accompagnement client."
+    },
+    {
+      question: "Quelle difference entre Basique et Premium ?",
+      answer:
+        "Basique vise une experience HD stable avec installation accompagnee. Premium ajoute le confort HD et 4K selon contenu, un anti-freeze avance et un support prioritaire."
+    },
+    {
+      question: "Quel pack choisir pour un foyer en France ?",
+      answer:
+        "Un foyer peut commencer par 1 ou 3 mois pour tester, choisir 6 ou 12 mois pour l'equilibre, ou 24 mois pour une utilisation longue duree. Les options 1, 2 ou 3 appareils s'adaptent au nombre d'ecrans."
+    }
+  ];
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: abonnementFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer }
+    }))
+  };
+
   return (
     <>
       <SeoEffect
         title={`Abonnement IPTV Premium France | ${siteConfig.brand}`}
         description={descriptions.abonnement}
         path="/abonnement-iptv"
-        schema={[baseOrganizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Abonnement IPTV", path: "/abonnement-iptv" }])]}
+        schema={[
+          baseOrganizationSchema,
+          iptvServiceSchema,
+          breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Abonnement IPTV", path: "/abonnement-iptv" }]),
+          faqSchema
+        ]}
       />
       <PageHero
         eyebrow="Abonnement IPTV"
@@ -168,6 +200,14 @@ function AbonnementPage() {
       />
       <section className="section article-section">
         <div className="article-copy reveal">
+          <div className="geo-answer-box">
+            <span>Definition courte</span>
+            <p>
+              Un IPTV premium est une offre de television par internet concue pour offrir une
+              experience plus stable, une qualite HD ou 4K selon contenu, une compatibilite avec
+              plusieurs appareils et un support client plus clair qu'une offre IPTV generique.
+            </p>
+          </div>
           <h2>Pourquoi choisir un IPTV premium en France ?</h2>
           <p>
             Un abonnement IPTV premium doit offrir une experience stable, une compatibilite large,
@@ -209,6 +249,14 @@ function AbonnementPage() {
             prix, compatibilite, support et fonctionnement general. Pour une question specifique,
             la page <a href="/contactez-nous">Contactez-nous</a> reste le chemin le plus direct.
           </p>
+          <div className="geo-faq-list">
+            {abonnementFaqs.map((faq) => (
+              <article key={faq.question}>
+                <h3>{faq.question}</h3>
+                <p>{faq.answer}</p>
+              </article>
+            ))}
+          </div>
         </div>
         <TrustSection />
       </section>

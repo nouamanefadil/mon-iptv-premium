@@ -793,6 +793,65 @@ textarea {
   text-decoration: underline;
 }
 
+.geo-answer-box,
+.geo-faq-list article {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 22px;
+}
+
+:root[data-theme="light"] .geo-answer-box,
+:root[data-theme="light"] .geo-faq-list article {
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(8, 26, 58, 0.12);
+  box-shadow: 0 16px 42px rgba(8, 26, 58, 0.08);
+}
+
+.geo-answer-box {
+  margin-bottom: 30px;
+}
+
+.geo-answer-box span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  color: var(--royal-red-2);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.geo-answer-box p {
+  margin: 0;
+  color: var(--ice);
+  font-size: 18px;
+}
+
+:root[data-theme="light"] .geo-answer-box p {
+  color: #07142c;
+}
+
+.geo-faq-list {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.geo-faq-list h3 {
+  margin: 0 0 8px;
+  color: var(--ice);
+  font-size: 20px;
+}
+
+:root[data-theme="light"] .geo-faq-list h3 {
+  color: #07142c;
+}
+
+.geo-faq-list p {
+  margin: 0;
+}
+
 .grid,
 .features-grid,
 .pricing-grid,

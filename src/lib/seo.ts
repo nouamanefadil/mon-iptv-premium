@@ -69,7 +69,46 @@ export const baseOrganizationSchema = {
   "@type": "Organization",
   name: siteConfig.brand,
   url: siteConfig.domain,
-  email: siteConfig.email
+  email: siteConfig.email,
+  description:
+    "Mon IPTV Premium est un site francais qui presente des offres IPTV premium avec packs Basique et Premium, compatibilite multi-appareils et commande via WhatsApp.",
+  areaServed: {
+    "@type": "Country",
+    name: siteConfig.country
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: siteConfig.whatsapp,
+    contactType: "customer support",
+    areaServed: siteConfig.country,
+    availableLanguage: ["fr"]
+  }
+};
+
+export const iptvServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "IPTV Premium France",
+  serviceType: "Abonnement IPTV premium",
+  provider: {
+    "@type": "Organization",
+    name: siteConfig.brand,
+    url: siteConfig.domain
+  },
+  areaServed: {
+    "@type": "Country",
+    name: siteConfig.country
+  },
+  description:
+    "Service de presentation et de commande d'offres IPTV premium en France avec packs Basique ou Premium, durees de 1 a 24 mois et options 1, 2 ou 3 appareils.",
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "EUR",
+    lowPrice: "9.00",
+    highPrice: "399.00",
+    offerCount: "30",
+    url: `${siteConfig.domain}/tarifs`
+  }
 };
 
 export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
