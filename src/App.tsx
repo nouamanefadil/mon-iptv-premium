@@ -19,10 +19,10 @@ import { aboutValues, blogPosts, faqs, siteConfig } from "./data/site";
 import { baseOrganizationSchema, breadcrumbSchema } from "./lib/seo";
 
 const descriptions = {
-  home: "IPTV Premium en France avec une experience moderne, compatible multi-appareils et un design international pour Mon IPTV Premium.",
+  home: "Decouvrez Mon IPTV Premium, une offre IPTV premium en France avec packs flexibles, compatibilite multi-appareils, support client et commande rapide via WhatsApp.",
   tarifs: "Tarifs IPTV Premium en France: offres Basique et Premium selon la duree et le nombre d'appareils pour Mon IPTV Premium.",
   abonnement:
-    "Abonnement IPTV premium en France: decouvrez les criteres de qualite, compatibilite, support et installation pour choisir une offre claire.",
+    "Choisissez un abonnement IPTV premium en France avec une experience stable, compatible multi-appareils, packs Basique ou Premium et accompagnement simple.",
   contact: "Contactez Mon IPTV Premium pour une demande d'information ou un essai. WhatsApp et tarifs seront ajoutes prochainement.",
   about: "A propos de Mon IPTV Premium: une marque IPTV premium orientee clarte, design international et experience France.",
   blog: "Blog IPTV Premium: guides, conseils et articles pour comprendre l'IPTV premium en France.",
@@ -142,6 +142,10 @@ function TarifsPage() {
           <div>Conseils d'installation</div>
           <div>Support client configure plus tard</div>
         </div>
+        <p className="section-note reveal">
+          Pour comprendre quel pack choisir, consultez aussi le guide
+          <a href="/abonnement-iptv"> abonnement IPTV premium France</a>.
+        </p>
       </section>
       <FAQSection />
     </>
@@ -160,22 +164,74 @@ function AbonnementPage() {
       <PageHero
         eyebrow="Abonnement IPTV"
         title="Abonnement IPTV premium pour la France"
-        text="Une page SEO dediee a l'intention abonnement IPTV, avec un discours clair, premium et sans references de marques protegees."
+        text="Comparez les packs, les appareils compatibles et les criteres qui comptent pour commander une offre IPTV premium claire."
       />
       <section className="section article-section">
         <div className="article-copy reveal">
-          <h2>Comment choisir un IPTV premium ?</h2>
+          <h2>Pourquoi choisir un IPTV premium en France ?</h2>
           <p>
-            Un service IPTV premium doit presenter une experience stable, une compatibilite large,
+            Un abonnement IPTV premium doit offrir une experience stable, une compatibilite large,
             une qualite d'image adaptee a votre connexion et un accompagnement simple au moment de
-            l'installation. Cette page met en avant ces criteres sans utiliser d'actifs proteges.
+            l'installation. Mon IPTV Premium presente une offre iptv premium France avec une structure
+            lisible, des prix transparents et une commande rapide via WhatsApp.
           </p>
           <p>
             Pour le marche francais, la confiance vient aussi de la clarte: informations visibles,
-            pages legales, tarifs explicites et contact facilement accessible.
+            pages legales, tarifs explicites, contact facilement accessible et contenus originaux sans
+            references de marques protegees.
+          </p>
+          <h2>IPTV premium Basique ou Premium : quelle difference ?</h2>
+          <p>
+            Les packs Basique conviennent aux utilisateurs qui veulent une offre iptv premium simple,
+            orientee HD et installation accompagnee. Les packs Premium ajoutent une experience HD et 4K
+            selon contenu, un meilleur confort anti-freeze et un support prioritaire.
+          </p>
+          <ul>
+            <li>Basique: ideal pour demarrer avec un pack IPTV premium accessible.</li>
+            <li>Premium: recommande pour profiter d'un IPTV HD 4K et d'un confort plus avance.</li>
+            <li>Multi-appareils: choisissez 1, 2 ou 3 appareils selon votre foyer.</li>
+          </ul>
+          <h2>Compatibilite : Smart TV, mobile, tablette, ordinateur</h2>
+          <p>
+            L'offre est presentee pour une utilisation multi-ecrans: Smart TV, mobile, tablette,
+            ordinateur, box TV ou navigateur compatible. Cette approche iptv multi-appareils permet de
+            choisir le pack qui correspond a votre usage reel.
+          </p>
+          <h2>Comment commander votre abonnement IPTV premium</h2>
+          <ol>
+            <li>Comparez les <a href="/tarifs">tarifs IPTV premium</a> selon la duree et le nombre d'appareils.</li>
+            <li>Choisissez Basique ou Premium, par exemple un iptv premium 12 mois si vous voulez un bon equilibre.</li>
+            <li>Cliquez sur Commander pour envoyer votre pack directement sur WhatsApp.</li>
+          </ol>
+          <h2>Questions frequentes sur IPTV premium</h2>
+          <p>
+            Vous pouvez consulter la FAQ plus bas pour verifier les points essentiels avant de commander:
+            prix, compatibilite, support et fonctionnement general. Pour une question specifique,
+            la page <a href="/contactez-nous">Contactez-nous</a> reste le chemin le plus direct.
           </p>
         </div>
         <TrustSection />
+      </section>
+      <section className="section section-muted">
+        <SectionHeading
+          eyebrow="Choix rapide"
+          title="Trouver le bon pack IPTV premium"
+          text="Les offres sont organisees pour comparer vite la duree, le nombre d'appareils et le niveau Basique ou Premium."
+        />
+        <div className="grid features-grid">
+          <article className="feature-card reveal">
+            <h3>Pack court</h3>
+            <p>1 ou 3 mois pour tester une offre iptv premium sans engagement long.</p>
+          </article>
+          <article className="feature-card reveal">
+            <h3>Pack equilibre</h3>
+            <p>6 ou 12 mois pour profiter d'un meilleur confort et d'un prix plus stable.</p>
+          </article>
+          <article className="feature-card reveal">
+            <h3>Pack longue duree</h3>
+            <p>24 mois pour les foyers qui veulent une solution IPTV premium installee durablement.</p>
+          </article>
+        </div>
       </section>
       <FeatureGrid />
       <StepsSection />

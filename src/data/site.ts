@@ -16,7 +16,7 @@ import {
 export const siteConfig = {
   brand: "Mon IPTV Premium",
   domain: "https://moniptvpremium.fr",
-  seoTitle: "IPTV Premium",
+  seoTitle: "IPTV Premium France | Abonnement IPTV HD et 4K",
   keyword: "iptv premium",
   country: "France",
   ctaPlaceholder: "#contactez-nous",
@@ -82,25 +82,29 @@ export const categories = [
     title: "Sport",
     text: "Evenements, competitions et emissions sportives dans une experience fluide.",
     tone: "red",
-    image: "/category-images/sport.jpg"
+    image: "/category-images/sport.jpg",
+    alt: "Illustration IPTV premium sport avec lumiere de stade et flux HD"
   },
   {
     title: "Cinema",
     text: "Films, nouveautes et classiques presentes sans affiche ni marque protegee.",
     tone: "blue",
-    image: "/category-images/cinema.jpg"
+    image: "/category-images/cinema.jpg",
+    alt: "Illustration IPTV premium cinema avec ecran et ambiance home cinema"
   },
   {
     title: "Series",
     text: "Bibliotheque organisee pour profiter de vos programmes favoris sur tous vos ecrans.",
     tone: "violet",
-    image: "/category-images/series.jpg"
+    image: "/category-images/series.jpg",
+    alt: "Illustration IPTV premium series avec bibliotheque de contenus"
   },
   {
     title: "Famille",
     text: "Selections jeunesse, documentaires et contenus generalistes pour le foyer.",
     tone: "cyan",
-    image: "/category-images/famille.jpg"
+    image: "/category-images/famille.jpg",
+    alt: "Illustration IPTV premium famille sur plusieurs appareils"
   }
 ];
 

@@ -255,6 +255,7 @@ textarea {
 .page-hero p,
 .section-heading p,
 .article-copy p,
+.article-copy li,
 .footer p,
 .feature-card p,
 .category-card p,
@@ -770,6 +771,28 @@ textarea {
   line-height: 1.04;
 }
 
+.article-copy ul,
+.article-copy ol {
+  margin: 18px 0 30px;
+  padding-left: 22px;
+}
+
+.article-copy li + li {
+  margin-top: 8px;
+}
+
+.article-copy a,
+.section-note a {
+  color: var(--royal-red-2);
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.article-copy a:hover,
+.section-note a:hover {
+  text-decoration: underline;
+}
+
 .grid,
 .features-grid,
 .pricing-grid,
@@ -1278,6 +1301,14 @@ textarea {
   text-align: center;
   background: var(--panel-strong);
   font-weight: 800;
+}
+
+.section-note {
+  max-width: 760px;
+  margin: 28px auto 0;
+  color: var(--muted);
+  line-height: 1.75;
+  text-align: center;
 }
 
 .article-section {

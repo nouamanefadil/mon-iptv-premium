@@ -76,9 +76,9 @@ const sitemapSchema = {
 export const routes = [
   {
     path: "/",
-    title: "IPTV Premium",
+    title: "IPTV Premium France | Abonnement IPTV HD et 4K",
     description:
-      "IPTV Premium en France avec une experience moderne, compatible multi-appareils et un design international pour Mon IPTV Premium.",
+      "Decouvrez Mon IPTV Premium, une offre IPTV premium en France avec packs flexibles, compatibilite multi-appareils, support client et commande rapide via WhatsApp.",
     schema: [organizationSchema, faqSchema],
     priority: "1.0"
   },
@@ -94,7 +94,7 @@ export const routes = [
     path: "/abonnement-iptv",
     title: `Abonnement IPTV Premium France | ${site.brand}`,
     description:
-      "Abonnement IPTV premium en France: decouvrez les criteres de qualite, compatibilite, support et installation pour choisir une offre claire.",
+      "Choisissez un abonnement IPTV premium en France avec une experience stable, compatible multi-appareils, packs Basique ou Premium et accompagnement simple.",
     schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Abonnement IPTV", path: "/abonnement-iptv" }])],
     priority: "0.9"
   },
