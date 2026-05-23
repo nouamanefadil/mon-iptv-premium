@@ -1,8 +1,23 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+
+  RewriteCond %{HTTP_HOST} ^www\.moniptvpremium\.fr$ [NC]
+  RewriteRule ^(.*)$ https://moniptvpremium.fr/$1 [R=301,L]
+
+  RewriteRule ^(tarifs|abonnement-iptv|contactez-nous|a-propos-de-nous|blog|mentions-legales|conditions-generales|confidentialite|sitemap)/?$ /$1/index.html [L]
+</IfModule>
+
+<IfModule mod_dir.c>
+  DirectorySlash Off
+</IfModule>
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>

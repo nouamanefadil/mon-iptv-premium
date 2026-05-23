@@ -1,0 +1,159 @@
+export const site = {
+  brand: "Mon IPTV Premium",
+  domain: "https://moniptvpremium.fr",
+  email: "contact@moniptvpremium.fr"
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.brand,
+  url: site.domain,
+  email: site.email
+};
+
+function breadcrumbSchema(items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: `${site.domain}${item.path}`
+    }))
+  };
+}
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Qu'est-ce qu'un IPTV premium ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Un IPTV premium designe une offre de television par internet orientee qualite, stabilite, compatibilite multi-appareils et accompagnement client."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Les prix sont-ils definitifs ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui. Les cartes affichent les tarifs Basique et Premium selon la duree choisie et le nombre d'appareils."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Comment contacter le service ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Vous pouvez utiliser les boutons Commander ou le bouton WhatsApp flottant pour envoyer directement votre demande."
+      }
+    }
+  ]
+};
+
+const sitemapSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: `Plan du site ${site.brand}`,
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Accueil", url: `${site.domain}/` },
+    { "@type": "ListItem", position: 2, name: "Tarifs IPTV Premium", url: `${site.domain}/tarifs` },
+    { "@type": "ListItem", position: 3, name: "Abonnement IPTV", url: `${site.domain}/abonnement-iptv` },
+    { "@type": "ListItem", position: 4, name: "Contactez-nous", url: `${site.domain}/contactez-nous` },
+    { "@type": "ListItem", position: 5, name: "A propos de nous", url: `${site.domain}/a-propos-de-nous` },
+    { "@type": "ListItem", position: 6, name: "Blog", url: `${site.domain}/blog` },
+    { "@type": "ListItem", position: 7, name: "Mentions legales", url: `${site.domain}/mentions-legales` },
+    { "@type": "ListItem", position: 8, name: "Conditions generales", url: `${site.domain}/conditions-generales` },
+    { "@type": "ListItem", position: 9, name: "Confidentialite", url: `${site.domain}/confidentialite` }
+  ]
+};
+
+export const routes = [
+  {
+    path: "/",
+    title: "IPTV Premium",
+    description:
+      "IPTV Premium en France avec une experience moderne, compatible multi-appareils et un design international pour Mon IPTV Premium.",
+    schema: [organizationSchema, faqSchema],
+    priority: "1.0"
+  },
+  {
+    path: "/tarifs",
+    title: `Tarifs IPTV Premium | ${site.brand}`,
+    description:
+      "Tarifs IPTV Premium en France: offres Basique et Premium selon la duree et le nombre d'appareils pour Mon IPTV Premium.",
+    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Tarifs", path: "/tarifs" }])],
+    priority: "0.9"
+  },
+  {
+    path: "/abonnement-iptv",
+    title: `Abonnement IPTV Premium France | ${site.brand}`,
+    description:
+      "Abonnement IPTV premium en France: decouvrez les criteres de qualite, compatibilite, support et installation pour choisir une offre claire.",
+    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Abonnement IPTV", path: "/abonnement-iptv" }])],
+    priority: "0.9"
+  },
+  {
+    path: "/contactez-nous",
+    title: `Contactez-nous | ${site.brand}`,
+    description: "Contactez Mon IPTV Premium pour une demande d'information, un essai ou une commande via WhatsApp.",
+    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Contactez-nous", path: "/contactez-nous" }])],
+    priority: "0.7"
+  },
+  {
+    path: "/a-propos-de-nous",
+    title: `A propos de nous | ${site.brand}`,
+    description: "A propos de Mon IPTV Premium: une marque IPTV premium orientee clarte, design international et experience France.",
+    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "A propos", path: "/a-propos-de-nous" }])],
+    priority: "0.7"
+  },
+  {
+    path: "/blog",
+    title: `Blog IPTV Premium | ${site.brand}`,
+    description: "Blog IPTV Premium: guides, conseils et articles pour comprendre l'IPTV premium en France.",
+    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Blog", path: "/blog" }])],
+    priority: "0.6"
+  },
+  {
+    path: "/mentions-legales",
+    title: `Mentions legales | ${site.brand}`,
+    description: "Informations legales de Mon IPTV Premium.",
+    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Mentions legales", path: "/mentions-legales" }])],
+    priority: "0.3"
+  },
+  {
+    path: "/conditions-generales",
+    title: `Conditions generales | ${site.brand}`,
+    description: "Conditions generales applicables a l'utilisation du site et aux offres Mon IPTV Premium.",
+    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Conditions generales", path: "/conditions-generales" }])],
+    priority: "0.3"
+  },
+  {
+    path: "/confidentialite",
+    title: `Politique de confidentialite | ${site.brand}`,
+    description: "Politique de confidentialite expliquant comment Mon IPTV Premium traite les donnees personnelles des visiteurs.",
+    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Confidentialite", path: "/confidentialite" }])],
+    priority: "0.3"
+  },
+  {
+    path: "/sitemap",
+    title: `Plan du site | ${site.brand}`,
+    description:
+      "Plan du site Mon IPTV Premium: acces rapide aux pages principales, aux offres IPTV, au contact et aux informations legales.",
+    schema: [organizationSchema, breadcrumbSchema([{ name: "Accueil", path: "/" }, { name: "Plan du site", path: "/sitemap" }]), sitemapSchema],
+    priority: "0.4"
+  }
+];
+
+export const notFoundRoute = {
+  path: "/404",
+  title: `Page introuvable | ${site.brand}`,
+  description: "Page introuvable.",
+  robots: "noindex, follow",
+  schema: [organizationSchema]
+};
